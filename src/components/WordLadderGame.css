@@ -1,0 +1,68 @@
+.word-ladder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+
+      
+    .game-info {
+      display: flex;
+      justify-content: space-between;
+      width: 70%;
+      padding: 10px;
+      background-color: #4e89ae;
+      color: white;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .word-steps {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .word-step {
+      background-color: #4e89ae;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+    
+    .word-input-section {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .word-input-section input {
+      padding: 10px;
+      font-size: 18px;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: 2px solid #4e89ae;
+      outline: none;
+    }
+    
+    .word-input-section button {
+      padding: 10px 20px;
+      background-color: #4e89ae;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .game-over-message {
+      text-align: center;
+      background-color: rgba(78, 137, 174, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+  }
+  

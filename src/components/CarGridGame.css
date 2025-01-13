@@ -1,0 +1,135 @@
+.car-grid-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    position: relative;
+
+        
+    /* Difficulty Select */
+    .car-difficulty-select {
+        position: absolute;
+        top: 60px; 
+        left: 10px;
+        z-index: 10;
+    }
+    .car-difficulty-dropdown {
+        padding: 4px 12px;
+        font-size: 1em;
+        border: 2px solid #4E89AE;
+        border-radius: 4px;
+        background-color: white;
+        color: #4E89AE;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .car-difficulty-dropdown:hover {
+        background-color: #e0f2ff;
+    }
+    
+    /* Board */
+    .car-board {
+        display: grid;
+        margin-top: 100px;
+        border: none; /*1px solid #888;*/
+        aspect-ratio: 1 / 1;  /* Keep grid roughly square on mobile */
+        transition: opacity 0.2s ease;
+    }
+    
+    .car-cell {
+        /* We'll override borders with inline style for adjacency-based borders */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.2em;
+        user-select: none;
+        box-sizing: border-box;
+    }
+    
+    /* Game Over Overlay */
+    .car-game-over {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .car-game-over h2 {
+        margin-bottom: 20px;
+        font-size: 36px;
+        color: #B2C9E6;
+    }
+    
+    .car-game-over button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ffffff30;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+    
+    .car-game-over button:hover {
+        background-color: #ffffff50;
+    }
+    
+    .car-cell.disabled {
+        pointer-events: none;
+    }
+    
+    .car-win-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 48px;
+        font-weight: bold;
+        color: #ff00ff;
+        text-shadow: 2px 2px #ffff00, -2px -2px #00ffff;
+        animation: spin 2s linear infinite;
+        z-index: 1000;
+        text-align: center;
+    }
+    
+    .car-board.win .car-cell {
+        animation: colorChange 0.5s infinite;
+    }
+    
+    .car-win-play-again {
+        position: fixed;
+        top: 75vh;
+        left: 50vw;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #2ecc40;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+    }
+    
+    .car-win-play-again:hover {
+        background-color: #27ae60;
+    }
+    
+  }
+  

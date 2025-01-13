@@ -1,0 +1,137 @@
+.asteroids-game-area {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 66px);
+    background-color: #f7f7f7; /* Relaxing light background */
+    overflow: hidden;
+    touch-action: none; /* Prevents default touch behaviors */
+
+        
+    /* Ship Styling */
+    .ship {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 20px solid #4E89AE; /* Soft blue color for ship */
+        transform-origin: center center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        position: absolute;
+        width: 3px;
+        height: 4px;
+        background-color: #4E89AE;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        clip-path: polygon( 0% 100%, 100% 100%, 50% 0%);
+        transform-origin: 50% 50%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+    }
+
+    /* Bullet Styling */
+    .bullet {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: #f28b82; /* Soft red for bullets */
+        border-radius: 50%;
+    }
+
+    /* Asteroid Styling */
+    .asteroid {
+        position: absolute;
+        background-color: #B2C9E6; /* Light grey-blue for asteroids */
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Controls Styling */
+    .controls {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        background-color: #ffffff10; /* Transparent background */
+        padding: 10px;
+    }
+
+    .controls button {
+        padding: 10px 15px;
+        font-size: 18px;
+        background-color: #ffffff30; /* Soft white translucent buttons */
+        border: none;
+        color: #4E89AE; /* Blue text for buttons */
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .controls button:active {
+        background-color: #ffffff50;
+    }
+
+    /* Game Over Screen */
+    .game-over {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .game-over h2 {
+        margin-bottom: 20px;
+        font-size: 36px;
+        color: #B2C9E6;
+    }
+
+    .game-over button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ffffff30;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .game-over button:hover {
+        background-color: #ffffff50;
+    }
+
+    /* Game Information */
+    .game-info {
+        position: absolute;
+        top: 62px;
+        left: 10px;
+        color: #4E89AE; /* Blue text for game info */
+        font-size: 18px;
+        z-index: 10;
+    }
+
+    .game-info div {
+        margin-bottom: 5px;
+    }
+
+    /* High Score Styling */
+    .high-score {
+        color: gold;
+        font-weight: bold;
+    }
+
+    button {
+        user-select: none; /* Prevent text selection */
+        touch-action: manipulation; /* Prevent default touch actions */
+        -webkit-user-select: none; /* For Safari */
+        -ms-user-select: none; /* For Internet Explorer/Edge */
+    }
+
+}

@@ -1,0 +1,183 @@
+.sudoku-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: calc(100vh - 150px);
+    box-sizing: border-box;
+    margin-top: 50px;
+
+    
+    .game-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .sudoku-board {
+        display: grid;
+        grid-template-rows: repeat(9, 1fr);
+        gap: 1px;
+        background-color: #000;
+        border: 2px solid #000;
+        width: 90vw;
+        height: 90vw;
+        max-width: 500px;
+        max-height: 500px;
+    }
+
+    .sudoku-row {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        gap: 1px;
+    }
+
+    .sudoku-cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        font-size: calc(16px + 1vw);
+        cursor: pointer;
+    }
+
+    .sudoku-cell:nth-child(3n) {
+        border-right: 2px solid #000;
+    }
+
+    .sudoku-row:nth-child(3n) .sudoku-cell {
+        border-bottom: 2px solid #000;
+    }
+
+    .sudoku-cell.selected {
+        background-color: #e0e0e0;
+    }
+
+    .sudoku-cell.filled {
+        font-weight: bold;
+    }
+
+    .number-input {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+        width: 90vw;
+        max-width: 500px;
+    }
+
+    .number-input button {
+        flex: 1 0 calc(11% - 10px);
+        aspect-ratio: 1 / 1;
+        font-size: calc(14px + 1vw);
+        cursor: pointer;
+    }
+
+    @media (max-aspect-ratio: 1/1) and (max-width: 768px) {
+        .sudoku-board {
+            width: 95vw;
+            height: 95vw;
+        }
+
+        .number-input {
+            width: 95vw;
+        }
+
+        .number-input button {
+            flex-basis: calc(20% - 10px);
+        }
+    }
+
+    .sudoku-cell.error {
+        background-color: #ffcccc; /* Light red background for errors */
+        color: red; /* Red text color for errors */
+    }
+
+    .sudoku-cell.highlight {
+        background-color: #f0f8ff; /* Light blue for the row, column, and box */
+    }
+
+    .sudoku-cell.selected {
+        background-color: #b0e0e6; /* A different shade of blue for the selected cell */
+    }
+
+    .game-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .game-controls select {
+        padding: 5px 10px;
+        font-size: 16px;
+        position: absolute;
+        left: 6px;
+    }
+
+    .mistake-counter {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .mistake-counter.warning {
+        color: red;
+    }
+
+    .timer {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .game-over {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .game-over h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .game-over button {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .sudoku-board.win .sudoku-cell {
+        animation: colorChange 0.5s infinite;
+    }
+
+    @keyframes colorChange {
+        0% { background-color: #ff0000; }
+        20% { background-color: #ffff00; }
+        40% { background-color: #00ff00; }
+        60% { background-color: #00ffff; }
+        80% { background-color: #0000ff; }
+        100% { background-color: #ff00ff; }
+    }
+
+    .win-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 48px;
+        font-weight: bold;
+        color: #ff00ff;
+        text-shadow: 2px 2px #ffff00, -2px -2px #00ffff;
+        animation: spin 2s linear infinite;
+        z-index: 1000;
+        text-align: center;
+    }
+
+    @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+
+}

@@ -1,0 +1,197 @@
+@keyframes flashingBorder {
+    0%, 100% {
+        outline: 3px solid transparent;
+        scale: 1;
+    }
+    25% {
+        scale: 1.02;
+    }
+    50% {
+        outline: 3px solid #2ecc71;
+        scale: 1;
+    }
+    75% {
+        scale: 1.02;
+    }
+}
+
+.trivia-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    padding-top: 110px;
+
+        
+    .dropdowns {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 10px;
+    }
+    
+    .dropdowns select {
+        width: 48%;
+        padding: 5px;
+        font-size: 16px;
+    }
+    
+    .scoreboard {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 10px;
+    }
+    
+    .scoreboard p {
+        margin: 0;
+        font-size: 16px;
+    }
+    
+    .question {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .question p {
+        font-size: 20px;
+    }
+    
+    .answers {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .answer-button {
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 18px;
+        background-color: #0095dd;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .answer-button:active {
+        background-color: #0077b3;
+    }
+    
+    .answer-button.correct {
+        border: 5px solid #2ecc71;
+        background-color: #27ae60;
+        color: white;
+    }
+    
+    .answer-button.incorrect {
+        border: 5px solid #e74c3c;
+        background-color: #c0392b;
+        color: white;
+    }
+    
+    .answer-button.highlight-correct {
+        animation: flashingBorder 1s infinite;
+    }
+    
+    .gameover-screen {
+        text-align: center;
+    }
+    
+    .gameover-screen h2 {
+        font-size: 28px;
+    }
+    
+    .restart-button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #0095dd;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .restart-button:active {
+        background-color: #0077b3;
+    }
+    
+    /* Disable text selection */
+    * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    /* Adjust font sizes for mobile */
+    @media (max-width: 600px) {
+        .dropdowns select {
+        font-size: 14px;
+        }
+    
+        .scoreboard p {
+        font-size: 14px;
+        }
+    
+        .question p {
+        font-size: 18px;
+        }
+    
+        .answer-button {
+        font-size: 16px;
+        padding: 8px;
+        }
+    }
+
+  .game-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .score-container {
+    display: flex;
+    background-color: #4E89AE;
+  }
+
+  .score-container.left {
+    justify-content: flex-start;
+    padding-left: 45px;
+    position: relative;
+    left: -30px;
+  }
+
+  .score-container.right {
+    justify-content: flex-end;
+    padding-right: 45px;
+    position: relative;
+    right: -30px;
+  }
+
+  .score-box {
+    background-color: #4E89AE;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+    text-align: center;
+  }
+
+  .score-label {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .score-value {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

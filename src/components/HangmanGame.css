@@ -1,0 +1,256 @@
+
+
+@keyframes colorChange {
+  0% { background-color: #ff0000; }
+  20% { background-color: #ffff00; }
+  40% { background-color: #00ff00; }
+  60% { background-color: #00ffff; }
+  80% { background-color: #0000ff; }
+  100% { background-color: #ff00ff; }
+}
+
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.pre-hangman-game {
+  height: 100vh;
+}
+
+.hangman-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 130px;
+
+      
+    .hangman-drawing {
+      position: relative;
+      width: 150px;
+      height: 200px;
+    }
+    
+    .hangman-base,
+    .hangman-pole,
+    .hangman-arm,
+    .hangman-rope,
+    .hangman-head,
+    .hangman-body,
+    .hangman-left-arm,
+    .hangman-right-arm,
+    .hangman-left-leg,
+    .hangman-right-leg {
+      position: absolute;
+      background-color: #000;
+    }
+    
+    /* Define styles for each part */
+    .hangman-base {
+      width: 100px;
+      height: 10px;
+      bottom: 0;
+      left: 25px;
+    }
+    
+    .hangman-pole {
+      width: 10px;
+      height: 150px;
+      bottom: 10px;
+      left: 50px;
+    }
+    
+    .hangman-arm {
+      width: 60px;
+      height: 10px;
+      bottom: 150px;
+      left: 50px;
+    }
+    
+    .hangman-rope {
+      width: 10px;
+      height: 20px;
+      bottom: 131px;
+      left: 100px;
+    }
+    
+    .hangman-head {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      bottom: 104px;
+      left: 90px;
+    }
+    
+    .hangman-body {
+      width: 10px;
+      height: 40px;
+      bottom: 65px;
+      left: 100px;
+    }
+    
+    .hangman-left-arm {
+      width: 30px;
+      height: 10px;
+      transform: rotate(45deg);
+      bottom: 97px;
+      left: 78px;
+    }
+    
+    .hangman-right-arm {
+      width: 30px;
+      height: 10px;
+      transform: rotate(-45deg);
+      bottom: 97px;
+      left: 102px;
+    }
+    
+    .hangman-left-leg {
+      width: 10px;
+      height: 30px;
+      transform: rotate(45deg);
+      bottom: 43px;
+      left: 90px;
+    }
+    
+    .hangman-right-leg {
+      width: 10px;
+      height: 30px;
+      transform: rotate(-45deg);
+      bottom: 43px;
+      left: 110px;
+    }
+    
+    .word-display {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .word-letter {
+      font-size: 32px;
+      margin: 0 5px;
+    }
+    
+    .letter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .letter-buttons button {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: none;
+      background-color: #0095dd;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    .letter-buttons button.disabled {
+      background-color: #ccc;
+      cursor: default;
+    }
+    
+    .game-message {
+      font-size: 24px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .restart-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #0095dd;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .restart-button:active {
+      background-color: #0077b3;
+    }
+    
+    /* Disable text selection */
+    * {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    
+    /* Adjust font sizes for mobile */
+    @media (max-width: 600px) {
+      .word-letter {
+        font-size: 24px;
+      }
+    
+      .letter-buttons button {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+    
+      .hangman-game {
+        padding: 5px;
+      }
+    }
+    
+    .hangman-drawing.won > div {
+      animation: colorChange 0.5s infinite;
+    }    
+
+    .game-message {
+      z-index: 1000;
+    }
+    
+  }
+  
+
+  .pre-hangman-game .win-message {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 2px 2px #ffff00, -2px -2px #00ffff;
+    animation: spin 2s linear infinite;
+    z-index: 1000;
+    text-align: center;
+  }
+    
+  .pre-hangman-game .restart-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #0095dd;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;    
+    z-index: 1000;
+  }
+  
+  .pre-hangman-game .restart-button:active {
+    background-color: #0077b3;
+  }
+
+  .pre-hangman-game .game-message {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    z-index: 1000;
+  }
+
+
+  .hangmanCorrectWord {
+    font-weight: bold;
+    font-size: 1.3em;
+  }

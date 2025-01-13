@@ -1,0 +1,239 @@
+.checkers-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f0f4f8; /* Soft light background */
+    padding: 20px;
+    height: 75vh;
+
+    
+    /* Game Board */
+    .board {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #4E89AE; /* Soft blue border */
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 1 / 1;
+        margin-top: 50px;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Rows within the board */
+    .board-row {
+        display: flex;
+        flex: 1;
+    }
+
+    /* Board cells */
+    .cell {
+        width: 12.5%;
+        position: relative;
+        padding-top: 12.5%; /* For square cells */
+    }
+
+    /* Light cells */
+    .cell.light {
+        background-color: #ffffff; /* White for light squares */
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Dark cells */
+    .cell.dark {
+        background-color: #B2C9E6; /* Soft blue for dark squares */
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+    }
+
+    /* Selected cells */
+    .cell.selected {
+        outline: 3px solid #f28b82; /* Soft red outline for selected cells */
+    }
+
+    /* Pieces */
+    .piece {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to pieces */
+    }
+
+    /* Player 1 pieces (Red) */
+    .player1 {
+        background-color: #4E89AE; /* Soft blue for player 1 */
+    }
+
+    /* Player 2 pieces (Black) */
+    .player2 {
+        background-color: #f28b82; /* Light red for player 2 */
+    }
+
+    .player-turn-1 {
+        color: #4E89AE; /* Soft blue for player 1 */
+    }
+
+    .player-turn-2 {
+        color: #f28b82; /* Light red for player 2 */
+    }
+
+    /* Kings (Gold outline for kings) */
+    .king {
+        outline: 3px solid gold;
+    }
+
+    /* Responsive layout */
+    @media (max-width: 600px) {
+        .board {
+            max-width: 100%;
+        }
+    }
+
+    .board.win .cell {
+        animation: colorChange 0.5s infinite;
+    }
+
+    @keyframes colorChange {
+        0% { background-color: #ff0000; }
+        20% { background-color: #ffff00; }
+        40% { background-color: #00ff00; }
+        60% { background-color: #00ffff; }
+        80% { background-color: #0000ff; }
+        100% { background-color: #ff00ff; }
+    }
+
+    .win-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 48px;
+        font-weight: bold;
+        color: #ff00ff;
+        text-shadow: 2px 2px #ffff00, -2px -2px #00ffff;
+        animation: spin 2s linear infinite;
+        z-index: 1000;
+        text-align: center;
+    }
+
+    @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .message {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .message {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        height: 30px;
+        padding-top: 48px;        
+      }
+      
+      .win-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 48px;
+        font-weight: bold;
+        color: #ff00ff;
+        text-shadow: 2px 2px #ffff00, -2px -2px #00ffff;
+        animation: spin 2s linear infinite;
+        z-index: 1000;
+        text-align: center;
+      }
+      
+      .win-message2 {
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 146px;
+        font-weight: bold;
+        color: #ff00ff;
+        text-shadow: 2px 2px #ffff00, -2px -2px #00ffff;
+        z-index: 1000;
+        text-align: center;
+      }
+      
+      .winDown {
+        animation: winDown 2s linear infinite;
+      }
+      
+      .winUp {
+        animation: winUp 2s linear infinite;
+      }
+      
+      .play-again-button {
+        position: fixed;
+        bottom: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1001;
+      }
+      
+      .play-again-button:hover {
+        background-color: #45a049;
+      }
+      
+      .game-over {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        z-index: 1000;
+      }
+
+
+}
+  
+
+@keyframes winDown {
+    0% { top: 30%; color: #ff0000; }
+    10% { color: #ffff00; }
+    20% { color: #00ff00; }
+    30% { color: #00ffff; }
+    40% { color: #0000ff; }
+    50% { top: 50%; color: #ff00ff; }
+    60% { color: #ff0000; }
+    70% { color: #ffff00; }
+    80% { color: #00ff00; }
+    90% { color: #00ffff; }
+    100% { top: 30%; color: #0000ff; }
+}
+
+@keyframes winUp {
+    0% { top: 20%; color: #ff0000; }
+    10% { color: #ffff00; }
+    20% { color: #00ff00; }
+    30% { color: #00ffff; }
+    40% { color: #0000ff; }
+    50% { top: 40%; color: #ff00ff; }
+    60% { color: #ff0000; }
+    70% { color: #ffff00; }
+    80% { color: #00ff00; }
+    90% { color: #00ffff; }
+    100% { top: 20%; color: #0000ff; }
+}

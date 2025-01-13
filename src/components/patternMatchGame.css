@@ -1,0 +1,44 @@
+
+    
+@keyframes countdownFadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    }
+
+.pre-memory-game {
+
+    .guessRow .card-back {
+        background-color: transparent !important;
+    }
+    
+    .guessRow .is-flipped .card-back {
+        background-color: #2980b9 !important;
+    }
+    
+    .countdown {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 120px;
+      color: #4E89AE;
+      z-index: 1000;
+      opacity: 0;
+      animation: countdownFadeInOut 0.9s ease-out forwards;
+    }
+        
+}

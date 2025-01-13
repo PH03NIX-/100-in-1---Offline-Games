@@ -1,0 +1,237 @@
+/* Bejeweled.css */
+
+@keyframes disappear {
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes explode {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@keyframes glowing {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes glowing2 {
+    0% { transform: translate(0%, 0%) rotate(0deg); opacity: 1;}
+    25% { opacity: 0.8; }
+    50% { opacity: 1; }
+    75% { opacity: 0.8; }
+    100% { transform: translate(0%, 0%) rotate(360deg); opacity: 1;}
+}
+
+@keyframes missile-explode {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scaleY(2);
+  }
+}
+
+/* Game Container */
+.bejeweled-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+  box-sizing: border-box;
+
+    
+  /* Board Grid */
+  .game-board {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* This creates a 1:1 aspect ratio */
+    background-color: #B2C9E6;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Gems */
+  .gem {
+    position: absolute;
+    width: 12.5%; /* 100% / 8 */
+    height: 12.5%; /* 100% / 8 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    /* Add the transition */
+    transition: top 0.4s ease-in-out;
+  }
+
+  .red { background-color: #ff4136; }
+  .blue { background-color: #0074d9; }
+  .green { background-color: #2ecc40; }
+  .yellow { background-color: #ffdc00; }
+  .purple { background-color: #b10dc9; }
+  .orange { background-color: #ff851b; }
+
+  /* Shapes */
+  .octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+
+  .circle {
+    clip-path: circle(50%);
+  }
+
+  .diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .square {
+    clip-path: polygon(10% 0%, 90% 0%, 90% 90%, 10% 90%);
+  }
+
+  .triangle {
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  }
+
+  .pentagon {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+
+  .matched {
+    animation: disappear 0.4s forwards;
+  }
+
+
+  /* Score and High Score Display */
+  .game-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .score-container {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    background-color: #4E89AE;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .score-label {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .score-value {
+    color: white;
+    font-size: 18px;
+  }
+
+    /* Bomb Gems */
+  .gem.bomb {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.8);
+    animation: glowing 0.4s infinite alternate;
+  }
+
+  .gem.missile {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.8);
+    animation: glowing2 1.3s infinite linear;
+  }
+
+  /* Explosion Animation */
+  .exploded {
+    animation: explode 0.4s forwards;
+  }
+
+  .missile-exploded {
+    animation: missile-explode 0.4s forwards;
+  }
+
+  /* Existing styles... */
+
+  /* Level Container */
+  .level-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .level-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  /* Next Level Button */
+  .next-level-button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4E89AE;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Empty Spots with Bonus Points */
+  .empty-spot {
+    position: absolute;
+    width: 12.5%; /* 100% / 8 */
+    height: 12.5%; /* 100% / 8 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px dashed #ccc;
+  }
+
+  /* Adjust gem styles if necessary */
+
+
+
+}

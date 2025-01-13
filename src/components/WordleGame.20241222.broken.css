@@ -1,0 +1,355 @@
+
+.pre-wordle-game {
+  /* General container */
+  height: 100vh;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  /* Header styles */
+  .header {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Board styles */
+  .board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    width: 90vw;
+    max-width: 400px;
+    margin-top: 45px;
+    margin-bottom: 20px;
+  }
+
+  /* Row styles */
+  .row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  /* Cell styles */
+  .cell {
+    width: 97%;
+    /*aspect-ratio: 1;*/
+    background-color: #818384;
+    color: #fff;
+    font-size: 1.5em;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2;
+    border-radius: 5px;
+    user-select: none;
+    border: 1px solid #818384;
+    min-height: 64px;
+  }
+
+  .cell.correct {
+    width: 100%; 
+    background-color: rgb(106, 170, 100); 
+    color: rgb(255, 255, 255); 
+  }
+
+  .cell.present {
+    width: 100%; 
+    background-color: rgb(201, 180, 88); 
+    color: rgb(255, 255, 255); 
+  }
+
+  /* Keyboard container */
+  .keyboard {
+    width: 90vw;
+    max-width: 500px;
+    margin-top: auto;
+    margin-bottom: 55px;
+    padding: 0 10px;
+  }
+
+  /* Keyboard row */
+  .kbRow {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  /* Keyboard key */
+  .kbKey {
+    flex: 1;
+    min-width: 20px;
+    padding: 10px 5px;
+    font-size: 16px;
+    background: #0095dd;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+  }
+
+  .kbKey.notInSolution {
+    margin: 2px;
+    background: #818384;
+    color: #fff;
+  }
+
+  /* Wide key style for ENTER */
+  .kbKey.wide-key {
+    flex: 3;  /* Takes up twice as much space as other keys */
+    font-size: 12px;
+  }
+
+  /* Message styles */
+  .message {
+    margin: 10px 0;
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  /* Timer styles */
+  .timer {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-height: 600px) {
+    .board {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .keyboard {
+      margin-bottom: 10px;
+    }
+    
+    .kbKey {
+      padding: 8px 3px;
+      font-size: 14px;
+    }
+  }
+
+  @keyframes colorChange {
+    0% { background-color: #ff0000; }
+    20% { background-color: #ffff00; }
+    40% { background-color: #00ff00; }
+    60% { background-color: #00ffff; }
+    80% { background-color: #0000ff; }
+    100% { background-color: #ff00ff; }
+  }
+
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .pre-wordle-game {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wordle-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .pre-wordle-game .win-message {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 2px 2px #ffff00, -2px -2px #00ffff;
+    animation: spin 2s linear infinite;
+    z-index: 1000;
+    text-align: center;
+  }
+
+  .pre-wordle-game .game-message {
+    position: absolute;
+    bottom: 75px;
+    z-index: 1000; 
+    width: 100%;
+    text-align: center;
+  }
+
+  .pre-wordle-game .restart-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #0095dd;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .pre-wordle-game .restart-button:active {
+    background-color: #0077b3;
+  }
+
+  .wordle-game-over {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .wordle-game-over h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .wordle-game-over p {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* Keyboard styles */
+  .keyboard {
+    position: fixed;
+    bottom: 0px;  /* Space for More Minutes button */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 500px;
+    padding: 0 10px;
+  
+  }
+
+  /* Responsive adjustments */
+  @media (max-height: 600px) {
+    .board {
+      margin-top: 10px;
+      gap: 3px;
+    }
+    
+    .keyboard {
+      bottom: 45px;
+    }
+    
+    .kbKey {
+      padding: 8px 3px;
+      font-size: 14px;
+    }
+  }
+
+  .wordle-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    padding-top: 64px;
+  }
+
+  /* Header styles - match Memory game */
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+
+    select {
+      font-size: 16px;
+      padding: 5px;
+    }
+  }
+
+  /* Game info styles - match Memory game */
+  .game-info {
+    position: absolute;
+    top: 0px;
+    right: 37px;
+    color: #4E89AE;
+    font-size: 15px;
+    z-index: 10;
+    background-color: rgba(78, 137, 174, 0.4);
+    padding: 2px 17px;
+    width: 50vw;
+    text-align: center;
+  }
+
+  .game-info div {
+    margin-bottom: 5px;
+    color: white;
+  }
+
+  /* Board styles */
+  .board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    width: 90vw;
+    max-width: 400px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Cell styles */
+  .cell {
+    width: 97%;
+    background-color: #2980b9;  /* Match Memory game's face-down card color */
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2;
+    border-radius: 5px;
+    user-select: none;
+    border: none;
+    min-height: 64px;
+  }
+
+  .option {
+    text-align: center;
+  }
+
+  /* Style for the current row's cells */
+  .row:nth-child(${props => props.currentRow + 1}) .cell {
+    background-color: #2980b9;  /* Match Memory game's face-down card color */
+  }
+
+  /* Keep your existing styles for correct/present cells */
+  .cell.correct {
+    background-color: rgb(106, 170, 100);
+  }
+
+  .cell.present {
+    background-color: rgb(201, 180, 88);
+  }
+
+  .cell.absent {
+    background-color: #818384;
+  }
+
+
+}

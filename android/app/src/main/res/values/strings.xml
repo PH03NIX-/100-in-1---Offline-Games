@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">100 in 1 - Offline Games</string>
+    <string name="title_activity_main">100 in 1 - Offline Games</string>
+    <string name="package_name">com.ph03games.offlinegames</string>
+    <string name="custom_url_scheme">com.ph03games.offlinegames</string>
+</resources>

@@ -1,0 +1,298 @@
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+
+@keyframes fuse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes multi-bomb {
+  0% {
+    background-color: rgb(117, 2, 2);
+  }
+  33% {
+    background-color: rgb(0, 0, 117);
+  }
+  66% {
+    background-color: rgb(117, 171, 0);
+  }
+}
+
+
+@keyframes left-arrow {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: -10px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes right-arrow {
+  0% {
+    right: 0px;
+  }
+  50% {
+    right: -10px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+
+/* Horizontal Explosion Animation */
+@keyframes rowExplode {
+  0% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(2);
+    opacity: 0;
+  }
+}
+
+
+.bubble-shooter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f0f0f0;
+
+  
+  .game-board {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    background-color: #B2C9E6;
+    overflow: hidden;
+    top: 45px;
+  }
+
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    transition: transform 0.1s linear;
+  }
+
+  .bubble.red { background-color: red; }
+  .bubble.blue { background-color: blue; }
+  .bubble.green { background-color: green; }
+  .bubble.yellow { background-color: yellow; }
+  .bubble.purple { background-color: purple; }
+  .bubble.orange { background-color: orange; }
+
+  .aim-dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .upcoming-bubbles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    background-color: #4E89AE;
+  }
+
+  .current-bubble, .next-bubbles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bubble.small {
+    width: 20px;
+    height: 20px;
+  }
+
+  .bubble.pop {
+    animation: pop 0.3s forwards;
+  }
+
+  @keyframes pop {
+    to {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  .bubble.drop {
+    animation: drop 0.5s forwards;
+  }
+
+  @keyframes drop {
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  .next-bubbles .small:first-child {
+    position: relative;
+    right: 30px;
+  }
+
+  .next-bubbles .small:last-child {
+    position: relative;
+    right: 80px;
+  }
+
+  .score-container {
+    color: white;
+    font-weight: bold;
+    .score-box:first-child {
+      position: absolute;
+      bottom: 67px;
+      right: 81px;
+    }
+    .score-box:nth-child(2) {
+      position: absolute;
+      bottom: 67px;
+      right: 20px;
+    }
+    .score-box:last-child {
+      position: absolute;
+      bottom: 67px;
+      left: 20px;
+    }
+  }
+
+  .score-container.high-score {
+    right: 100px;
+  }
+
+  
+  /* Explosion Animation for Bomb Bubbles */
+  .bubble.exploding {
+    animation: explode 0.3s forwards;
+  }
+
+  /* Pop Animation for Regular Bubbles */
+  .bubble.popping {
+    animation: pop 0.3s forwards;
+  }
+
+  /* Bomb Bubble Styling */
+  .bubble.bomb {
+    /*background-image: radial-gradient(circle, #ff0 0%, #f00 70%);*/
+    position: absolute;
+    animation: multi-bomb 0.4s infinite;
+    outline: 5px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .bubble.bomb::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 3px;
+    height: 10px;
+    background-color: #333;
+    transform: translateX(-50%);
+  }
+
+  .bubble.bomb::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: #ff0;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: fuse 1s infinite;
+  }
+
+    /* RowBomb Bubble Styling */
+  .bubble.rowbomb {
+    /*background-image: linear-gradient(90deg, #FF4500, #FFA500, #FF4500);*/
+    position: absolute;
+  }
+
+  /* Left-pointing arrow */
+  .bubble.rowbomb::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid #000;
+    transform: translateY(-50%);
+    animation: left-arrow 1s infinite linear;
+  }
+
+  /* Right-pointing arrow */
+  .bubble.rowbomb::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 10px solid #000;
+    transform: translateY(-50%);
+    animation: right-arrow 1s infinite linear;
+  }
+
+  /* Apply the horizontal explosion to bubbles with the 'same-row' class */
+  .bubble.exploding.same-row {
+    animation: rowExplode 0.3s forwards;
+  }
+
+  .bubble.falling {
+    animation: fall 1s forwards;
+  }
+
+}

@@ -1,0 +1,126 @@
+.spin-wheel-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spin-wheel-overlay {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.spin-wheel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    background: #333;
+    overflow: hidden;
+    transform-origin: center;
+    border: 10px solid #444;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.prize-segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    left: 50%;
+    top: 0;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.segment-content {
+    position: absolute;
+    left: -50%;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    transform-origin: 50% 0;
+}
+
+.segment-content span {
+    display: inline-block;
+    transform: rotate(-60deg);
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 
+        1px 1px 1px rgba(0,0,0,0.6),
+        -1px -1px 1px rgba(0,0,0,0.6),
+        1px -1px 1px rgba(0,0,0,0.6),
+        -1px 1px 1px rgba(0,0,0,0.6);
+    white-space: nowrap;
+}
+
+.pointer {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.pointer-head {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid #e74c3c;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
+}
+
+.spin-button {
+    padding: 12px 30px;
+    font-size: 18px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.spin-button:disabled {
+    background: #ccc;
+}
+
+.spin-button:hover:not(:disabled) {
+    background: #45a049;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #333;
+} 

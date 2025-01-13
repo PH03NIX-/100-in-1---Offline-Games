@@ -1,0 +1,132 @@
+@keyframes appear {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+/* Game Container */
+.game-2048 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f7f7;
+    padding: 20px;
+    height: 75vh;
+
+        
+    /* Board Grid */
+    .board-2048 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        background-color: #B2C9E6;
+        border-radius: 15px;
+        padding: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Individual Cell */
+    .board-cell { 
+        width: calc(25vw - 15px);
+        height: calc(25vw - 15px);
+        background-color: #E6EBF2;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #4E89AE;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    }
+    
+    .value-2 { background-color: #f4f4f9; }
+    .value-4 { background-color: #f7e4da; }
+    .value-8 { background-color: #f9b179; }
+    .value-16 { background-color: #f28b82; }
+    /* Add similar color settings for other values */
+    .value-2 { background-color: #E6F3FF; color: #776e65; }
+.value-4 { background-color: #D4E9FC; color: #776e65; }
+.value-8 { background-color: #C2E0FA; color: #776e65; }
+.value-16 { background-color: #B0D7F7; color: #776e65; }
+.value-32 { background-color: #9ECEF5; color: #776e65; }
+.value-64 { background-color: #8CC5F2; color: #776e65; }
+.value-128 { background-color: #7ABCF0; color: #ffffff; }
+.value-256 { background-color: #68B3ED; color: #ffffff; }
+.value-512 { background-color: #56AAEB; color: #ffffff; }
+.value-1024 { background-color: #44A1E8; color: #ffffff; }
+.value-2048 { background-color: #3298E6; color: #ffffff; }
+.value-4096 { background-color: #208FE3; color: #ffffff; }
+.value-8192 { background-color: #0E86E1; color: #ffffff; }
+    
+    /* Score and High Score Display */
+    .game-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .score-container {
+        display: flex;
+        justify-content: space-between;
+        width: 45%;
+        background-color: rgba(78, 137, 174, 0.7);
+        padding: 10px;
+        border-radius: 0px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .score-label {
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .score-value {
+        color: white;
+        font-size: 18px;
+    }
+    
+    /* Game Over Screen */
+    .game-over {
+        text-align: center;
+        color: #333;
+    }
+    
+    .game-over button {
+        background-color: #4E89AE;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    .board-cell {
+        /* ... existing styles ... */
+        transition: background-color 0.15s ease-in-out;
+      }
+      
+      .new-tile {
+        animation: appear 0.2s ease-in-out;
+      }
+      
+      .cell-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+  }
+    

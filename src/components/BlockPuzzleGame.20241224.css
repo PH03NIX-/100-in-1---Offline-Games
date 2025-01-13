@@ -1,0 +1,111 @@
+.preBlockPuzzleGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: calc(100vh - 150px);
+    box-sizing: border-box;
+    margin-top: 50px;
+
+    .game-info {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        background: #ddd;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .puzzle-board {
+        display: grid;
+        grid-template-rows: repeat(9, 1fr);
+        gap: 1px;
+        background-color: #000;
+        border: 2px solid #000;
+        width: 90vw;
+        height: 90vw;
+        max-width: 500px;
+        max-height: 500px;
+    }
+
+    .board-row {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        gap: 1px;
+        width: calc(90vw - 5px);
+    }
+
+    .board-cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        aspect-ratio: 1;
+        transition: background-color 0.2s;
+    }
+
+    /* 3x3 grid borders */
+    .board-cell:nth-child(3n) {
+        border-right: 2px solid #000;
+    }
+
+    .board-row:nth-child(3n) .board-cell {
+        border-bottom: 2px solid #000;
+    }
+
+    /* Cell states */
+    .board-cell.filled {
+        transition: background-color 0.3s;
+    }
+
+    .board-cell.hover-valid {
+        background-color: rgba(0, 255, 0, 0.3);
+    }
+
+    .board-cell.hover-invalid {
+        background-color: rgba(255, 0, 0, 0.3);
+    }
+
+    /* Shapes area */
+    .shapes-area {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        padding: 20px;
+        background: #eee;
+        border-radius: 5px;
+        width: 90vw;
+        max-width: 500px;
+    }
+
+    .shape-preview {
+        display: inline-block;
+        padding: 10px;
+        background: #ddd;
+        border-radius: 5px;
+        cursor: grab;
+    }
+
+    .shape-preview:active {
+        cursor: grabbing;
+    }
+
+    .shape-grid {
+        display: grid;
+        gap: 2px;
+    }
+
+    .shape-cell {
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .shape-cell.filled {
+        border: none;
+    }
+} 

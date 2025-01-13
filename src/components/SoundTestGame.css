@@ -1,0 +1,44 @@
+.sound-test-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding-top: 110px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sound-test-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sound-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.sound-button {
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4E89AE;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+}
+
+.sound-button:hover {
+  background-color: #3a6d8f;
+  transform: scale(1.05);
+}
+
+.sound-button:active {
+  transform: scale(0.95);
+} 

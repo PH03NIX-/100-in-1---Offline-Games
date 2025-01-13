@@ -1,0 +1,13 @@
+{
+	"appId": "com.ph03games.offlinegames",
+	"appName": "100 in 1 - Offline Games",
+	"webDir": "build",
+	"packageClassList": [
+		"AdMob",
+		"NativeAudio",
+		"AppPlugin",
+		"ScreenOrientationPlugin",
+		"StatusBarPlugin",
+		"CDVPlugin"
+	]
+}

@@ -1,0 +1,236 @@
+.scramble-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #f1f1f1;
+    overflow: hidden;
+    position: relative;
+    margin-top: 60px;
+
+    
+    .scramble-topbar {
+        width: 90vw;
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: rgba(78, 137, 174, 0.4);
+        border-radius: 5px;
+    }
+    
+    .scramble-newgame-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+        border: 2px solid #4E89AE;
+        border-radius: 5px;
+        background-color: white;
+        color: #4E89AE;
+        cursor: pointer;
+    }
+    
+    .scramble-score {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .scramble-hand,
+    .scramble-spell {
+        background-color: #ffffffcc;
+        padding: 10px;
+        border-radius: 5px;
+        width: 90vw;
+        max-width: 600px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    
+    h3 {
+        margin: 0 0 10px 0;
+    }
+    
+    .scramble-hand-letters,
+    .scramble-spell-letters {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .scramble-letter-tile {
+        width: 50px;
+        height: 50px;
+        background-color: #2980b9;
+        color: #fff;
+        font-size: 1.4em;
+        font-weight: bold;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .hand-tile:hover {
+        background-color: #3498db;
+    }
+    .spell-tile:hover {
+        background-color: #1f5c7d;
+    }
+    
+    .scramble-check-btn {
+        margin-top: 10px;
+        padding: 8px 20px;
+        font-size: 16px;
+        border: 2px solid #27ae60;
+        border-radius: 5px;
+        background-color: white;
+        color: #27ae60;
+        cursor: pointer;
+    }
+    
+    .scramble-check-btn:hover {
+        background-color: #e8fce8;
+    }
+    
+    .scramble-foundwords {
+        background-color: #ffffffcc;
+        width: 90vw;
+        max-width: 600px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        flex-shrink: 0;
+        overflow-y: auto;
+    }
+    
+    .scramble-foundwords ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    
+    .scramble-foundwords li {
+        margin-bottom: 5px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    
+    .letter-count-select {
+        padding: 8px 15px;
+        font-size: 14px;
+        border: 2px solid #4E89AE;
+        border-radius: 5px;
+        background-color: white;
+        color: #4E89AE;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    
+    .letter-count-select:focus {
+        outline: none;
+        border-color: #2980b9;
+    }
+
+    .player-area {
+        position: absolute;
+        bottom: 0px;
+        padding-bottom: 110px;
+    }
+  
+    .scramble-foundwords ul.word-list {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+        display: grid;
+        gap: 5px 15px;
+    }
+    
+    .word-list.columns-1 {
+        grid-template-columns: 1fr;
+    }
+    
+    .word-list.columns-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .word-list.columns-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .word-list.columns-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .word-list.columns-5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .scramble-foundwords li {
+        margin-bottom: 5px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    
+    .word-list.small-text li {
+        font-size: 0.8em;
+    }
+
+    .win-message {
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 48px;
+        font-weight: bold;
+        color: #ff00ff;
+        text-shadow: 2px 2px #ffff00, -2px -2px #00ffff;
+        animation: spin 2s linear infinite;
+        z-index: 1000;
+        text-align: center;
+    }
+    
+    .game-message {
+        position: absolute;
+        bottom: 125px;
+        z-index: 1000; 
+        width: 100%;
+        text-align: center;
+    }
+    
+    .restart-button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #0095dd;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: background-color 0.3s;
+    }
+    
+    .restart-button:active {
+        background-color: #0077b3;
+    }
+
+    @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes colorChange {
+        0% { background-color: #ff0000; }
+        20% { background-color: #ffff00; }
+        40% { background-color: #00ff00; }
+        60% { background-color: #00ffff; }
+        80% { background-color: #0000ff; }
+        100% { background-color: #ff00ff; }
+    }
+}

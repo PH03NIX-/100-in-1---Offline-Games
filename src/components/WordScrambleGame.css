@@ -1,0 +1,61 @@
+.word-scramble-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #f0f4f8;
+    
+  .game-info {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    background-color: #4e89ae;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .scrambled-word, .guess {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .letter, .guess-letter {
+    background-color: #4e89ae;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .letter:hover {
+    background-color: #3b6e92;
+  }
+  
+  .submit-button, .reset-button {
+    background-color: #4e89ae;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover, .reset-button:hover {
+    background-color: #3b6e92;
+  }
+  
+  }
+  

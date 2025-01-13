@@ -1,0 +1,84 @@
+.word-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+        
+    .game-info {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        padding: 10px;
+        background-color: #4e89ae;
+        color: white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .grid {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .grid-row {
+        display: flex;
+    }
+    
+    .grid-cell {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #fff;
+    }
+    
+    .grid-cell:hover {
+        background-color: #b2c9e6;
+    }
+    
+    .current-word h2 {
+        margin: 20px 0;
+    }
+    
+    .submit-button {
+        background-color: #4e89ae;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .found-words {
+        margin-top: 20px;
+    }
+    
+    .word-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .word-item {
+        background-color: #4e89ae;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    
+    .game-over-message {
+        text-align: center;
+        background-color: rgba(78, 137, 174, 0.8);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+  }
+  

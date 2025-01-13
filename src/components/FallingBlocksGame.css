@@ -1,0 +1,41 @@
+.falling-blocks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+
+        
+    .game-info {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        padding: 10px;
+        background-color: #4e89ae;
+        color: white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .grid {
+        display: grid;
+        margin-bottom: 20px;
+    }
+    
+    .grid-cell {
+        border: 1px solid #ddd;
+    }
+    
+    .grid-cell.filled {
+        background-color: #4e89ae;
+    }
+    
+    .controls button {
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    
+  }
+  

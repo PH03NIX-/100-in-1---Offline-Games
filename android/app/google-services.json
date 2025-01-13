@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "722994009637",
+    "project_id": "in-1---offline-games",
+    "storage_bucket": "in-1---offline-games.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722994009637:android:9c152b2a89a05f2482d1cc",
+        "android_client_info": {
+          "package_name": "com.ph03games.offlinegames"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTC0P3hi71uGOxSxwUdhibWonePZaOM1k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
